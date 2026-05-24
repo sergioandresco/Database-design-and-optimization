@@ -1,0 +1,96 @@
+
+# ECOMMIFY - MongoDB Schemas
+
+products_schema = {
+    "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["product_id", "category"],
+        "properties": {
+            "product_id": {"bsonType": "string"},
+            "category": {"bsonType": "object"},
+            "specs": {"bsonType": "object"},
+            "analytics": {"bsonType": "object"},
+            "status": {"bsonType": "string"},
+            "created_at": {"bsonType": "date"}
+        }
+    }
+}
+
+reviews_schema = {
+    "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["review_id", "order_id", "score"],
+        "properties": {
+            "review_id": {"bsonType": "string"},
+            "order_id": {"bsonType": "string"},
+            "product_ids": {
+                "bsonType": "array",
+                "items": {"bsonType": "string"}
+            },
+            "score": {
+                "bsonType": "int",
+                "minimum": 1,
+                "maximum": 5
+            },
+            "comment": {"bsonType": "object"},
+            "created_at": {"bsonType": "date"},
+            "answered_at": {"bsonType": "date"}
+        }
+    }
+}
+
+product_catalog_view_schema = {
+    "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["product_id"],
+        "properties": {
+            "product_id": {"bsonType": "string"},
+            "category": {"bsonType": "object"},
+            "specs": {"bsonType": "object"},
+            "metrics": {"bsonType": "object"},
+            "top_sellers": {"bsonType": "array"},
+            "last_updated": {"bsonType": "date"}
+        }
+    }
+}
+
+user_behavior_schema = {
+    "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["customer_id", "session_id", "events"],
+        "properties": {
+            "customer_id": {"bsonType": "string"},
+            "session_id": {"bsonType": "string"},
+            "events": {"bsonType": "array"},
+            "device": {"bsonType": "object"}
+        }
+    }
+}
+
+recommendations_schema = {
+    "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["customer_id", "recommendations"],
+        "properties": {
+            "customer_id": {"bsonType": "string"},
+            "generated_at": {"bsonType": "date"},
+            "recommendations": {"bsonType": "array"}
+        }
+    }
+}
+
+# Indexes
+
+db.products.create_index("product_id", unique=True)
+db.products.create_index("category.name_pt")
+db.products.create_index("category.name_en")
+
+db.reviews.create_index("review_id", unique=True)
+db.reviews.create_index("order_id")
+db.reviews.create_index("score")
+
+db.product_catalog_view.create_index("metrics.total_sales")
+
+db.user_behavior.create_index("customer_id")
+
+db.recommendations.create_index("customer_id")
