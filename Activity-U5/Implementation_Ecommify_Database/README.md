@@ -1,4 +1,4 @@
-# Ecommify — Diseño y Optimización de Bases de Datos (Actividad U2)
+# Ecommify — Diseño y Optimización de Bases de Datos (Actividad U5)
 
 Diseño de una **arquitectura de datos híbrida** para la empresa ficticia *Ecommify*, a partir del dataset público **Brazilian E-commerce (Olist)** (9 tablas).
 
@@ -14,9 +14,19 @@ Ecommify_Database_Design/
 ├── notebooks/
 │   ├── 01_EDA_Ecommify.ipynb          # Análisis exploratorio de las 9 tablas Olist
 │   └── 02_MongoDB_Atlas_Ecommify.ipynb # Implementación de la capa documental en Atlas
+│   └── 03_MongoDB_Ecommify_Entregable_U5 # Implementación de la Base de datos en Atlas
 ├── mongodb/
-│   └── schema/
-│       └── ecommify_mongodb_schemas.txt # Validadores JSON Schema + índices
+│   └── docs/
+│   │   ├── performance_results     # Resultados de la optimización
+│   │   ├── sharding_strategy       # Sharding key propuesta
+│   └── indexes
+│   │   ├── ecommify_indexes        # Indexes Propuestos
+│   └── pipelines
+│   │   ├── aggregation_pipelines   # Aggregation pipelines diseñados
+│   └── queries
+│   │   ├── optimized_queries       # Consultas optimizadas
+│   └── schemas
+│   │   ├── ecommify_mongodb_schemas # Schemas de la base de datos Mongo
 ├── postgresql/
 │   ├── schema/
 │   │   ├── 01_create_tables.sql        # Tablas, PKs, FKs, CHECKs, comentarios
