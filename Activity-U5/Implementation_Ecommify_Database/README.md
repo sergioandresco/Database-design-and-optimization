@@ -14,7 +14,7 @@ Ecommify_Database_Design/
 ├── notebooks/
 │   ├── 01_EDA_Ecommify.ipynb          # Análisis exploratorio de las 9 tablas Olist
 │   └── 02_MongoDB_Atlas_Ecommify.ipynb # Implementación de la capa documental en Atlas
-│   └── 03_MongoDB_Ecommify_Entregable_U5 # Implementación de la Base de datos en Atlas
+│   └── 03_MongoDB_Ecommify_Entregable_U5.ipynb # Implementación de la Base de datos en Atlas
 ├── mongodb/
 │   └── docs/
 │   │   ├── performance_results     # Resultados de la optimización
@@ -88,7 +88,7 @@ El SQL fue validado contra **PostgreSQL 16** (todos los scripts ejecutan sin err
 
 ## Capa documental (MongoDB Atlas)
 
-Implementada en `notebooks/02_MongoDB_Atlas_Ecommify.ipynb`. Colecciones: `products`, `reviews`, `product_catalog_view`, `user_behavior`, `recommendations`. Patrones aplicados: *Embedding*, *Referencing*, *Computed Pattern* y *Subset Pattern* (para respetar el límite de Atlas M0). Las métricas embebidas (`total_sales`, `total_revenue`, `avg_review_score`) se calculan desde PostgreSQL en `queries/02_metrics_mongodb.sql`.
+Implementada en `notebooks/03_MongoDB_Ecommify_Entregable_U5.ipynb`. Colecciones: `products`, `reviews`, `product_catalog_view`, `user_behavior`, `recommendations`. Patrones aplicados: *Embedding*, *Referencing*, *Computed Pattern* y *Subset Pattern* (para respetar el límite de Atlas M0). Las métricas embebidas (`total_sales`, `total_revenue`, `avg_review_score`) se calculan desde PostgreSQL en `queries/02_metrics_mongodb.sql`.
 
 ## Dataset
 
