@@ -38,6 +38,10 @@ Ecommify_Database_Design/
 │       ├── 02_metrics_mongodb.sql      # Métricas que alimentan los documentos Mongo (M2/M4)
 │       └── 03_optimization.sql         # EXPLAIN ANALYZE y demostración de índices
 └── docs/
+│       ├── Video                       # Link del video explicativo de Ecommify
+│       ├── Unidad 5.pdf                # Documento técnico en formato PDF
+│       └── Unidad 5.docx               # Documento técnico en formato docx             
+
 ```
 
 ## Modelo relacional (PostgreSQL)
