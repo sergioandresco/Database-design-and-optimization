@@ -1,21 +1,23 @@
-🚀 Ecommify — Database Design and Optimization
-Diseño, Implementación y Optimización de una Arquitectura Híbrida PostgreSQL + MongoDB para E-commerce
-Universidad de La Sabana
+# Ecommify — Database Design and Optimization
 
-Facultad de Ingeniería – Ingeniería de Sistemas
+**Diseño, Implementación y Optimización de una Arquitectura Híbrida PostgreSQL + MongoDB para E-commerce**
 
-Asignatura: Diseño y Optimización de Bases de Datos
+**Universidad de La Sabana**
 
-Proyecto Final: Ecommify
+**Facultad de Ingeniería – Ingeniería de Sistemas** 
 
-Integrantes
+**Asignatura:** Diseño y Optimización de Bases de Datos
 
-Juan José Vélez Álvarez
-Juan Sebastián Buitrago Romero
-Sergio Andrés Cobos Suárez
-David Aníbal Vásquez Beltrán
+**Proyecto Final:** Ecommify
 
-📌 Descripción del Proyecto
+## Integrantes
+
+- Juan José Vélez Álvarez
+- Juan Sebastián Buitrago Romero
+- Sergio Andrés Cobos Suárez
+- David Aníbal Vásquez Beltrán
+
+# Descripción del Proyecto
 
 Ecommify es un proyecto académico que aborda el diseño, implementación y optimización de una arquitectura de bases de datos para un entorno de comercio electrónico basado en el dataset Olist.
 
@@ -23,83 +25,94 @@ El proyecto parte de un análisis exploratorio de datos (EDA) para identificar l
 
 La solución implementada busca responder a necesidades transaccionales, analíticas y de escalabilidad, manteniendo consistencia donde es necesaria y flexibilidad donde aporta valor.
 
-🎯 Objetivos
+# Objetivos
 Objetivo General
 
 Diseñar e implementar una arquitectura híbrida de bases de datos que combine PostgreSQL y MongoDB para soportar las necesidades operativas y analíticas de una plataforma de comercio electrónico.
 
 Objetivos Específicos
-Analizar la calidad y estructura del dataset Ecommify.
-Diseñar un modelo relacional normalizado para entidades transaccionales.
-Diseñar colecciones documentales optimizadas para MongoDB.
-Implementar índices y estrategias de optimización.
-Evaluar rendimiento mediante métricas cuantitativas.
-Analizar decisiones arquitectónicas utilizando el Teorema CAP.
-Documentar una solución reproducible y escalable.
+- Analizar la calidad y estructura del dataset Ecommify.
+- Diseñar un modelo relacional normalizado para entidades transaccionales.
+- Diseñar colecciones documentales optimizadas para MongoDB.
+- Implementar índices y estrategias de optimización.
+- Evaluar rendimiento mediante métricas cuantitativas.
+- Analizar decisiones arquitectónicas utilizando el Teorema CAP.
+- Documentar una solución reproducible y escalable.
 
-🏗 Arquitectura Implementada
+# Arquitectura Implementada
 
 El proyecto adopta una arquitectura híbrida o políglota.
-PostgreSQL (Supabase)
+# PostgreSQL (Supabase)
 PostgreSQL funciona como sistema OLTP y fuente principal de verdad.
-Entidades gestionadas
-Customers
-Orders
-Order Items
-Order Payments
-Sellers
-Geolocation
-Category Translation
-Razones de selección
-Integridad referencial
-Consistencia fuerte
-Restricciones y constraints
-Transacciones ACID
-Modelo normalizado
 
-MongoDB Atlas
+**Entidades gestionadas**
+- Customers
+- Orders
+- Order Items
+- Order Payments
+- Sellers
+- Geolocation
+- Category Translation
+
+**Razones de selección**
+- Integridad referencial
+- Consistencia fuerte
+- Restricciones y constraints
+- Transacciones ACID
+- Modelo normalizado
+
+# MongoDB Atlas
 MongoDB funciona como capa documental y analítica.
-Colecciones implementadas
-Products
-Reviews
-Product Catalog View
-User Behavior
-Recommendations
-Razones de selección
-Catálogo heterogéneo
-Comentarios opcionales
-Consultas flexibles
-Agregaciones rápidas
-Recomendaciones precalculadas
 
-📊 Hallazgos del EDA
+**Colecciones implementadas**
+- Products
+- Reviews
+- Product Catalog View
+- User Behavior
+- Recommendations
+
+**Razones de selección**
+- Catálogo heterogéneo
+- Comentarios opcionales
+- Consultas flexibles
+- Agregaciones rápidas
+- Recomendaciones precalculadas
+
+# Hallazgos del EDA
 El análisis exploratorio identificó:
-32.951 productos.
-73 categorías distintas.
-Más de 99.000 reseñas.
-Más de 100.000 pedidos.
-Más de 1 millón de registros geográficos.
-Hallazgos clave
-Productos con estructuras heterogéneas.
-Reseñas con texto opcional.
-Alta consistencia relacional.
-Concentración geográfica en São Paulo.
-Necesidad de separar cargas transaccionales y analíticas.
 
-🗄 Implementación PostgreSQL
+- 32.951 productos.
+- 73 categorías distintas.
+- Más de 99.000 reseñas.
+- Más de 100.000 pedidos.
+- Más de 1 millón de registros geográficos.
+
+**Hallazgos clave**
+
+- Productos con estructuras heterogéneas.
+- Reseñas con texto opcional.
+- Alta consistencia relacional.
+- Concentración geográfica en São Paulo.
+- Necesidad de separar cargas transaccionales y analíticas.
+
+# Implementación PostgreSQL
 La implementación relacional incluye:
-Características
-Modelo normalizado hasta 3FN.
-Claves primarias y foráneas.
-Constraints de negocio.
-Índices especializados.
-Particionamiento temporal.
-Scripts DDL reproducibles.
-Optimizaciones
-Índices B-Tree.
-Índices compuestos.
-EXPLAIN ANALYZE.
-Particionamiento por fecha.
+
+**Características**
+
+- Modelo normalizado hasta 3FN.
+- Claves primarias y foráneas.
+- Constraints de negocio.
+- Índices especializados.
+- Particionamiento temporal.
+- Scripts DDL reproducibles.
+
+**Optimizaciones**
+
+- Índices B-Tree.
+- Índices compuestos.
+- EXPLAIN ANALYZE.
+- Particionamiento por fecha.
 
 🍃 Implementación MongoDB
 La implementación documental incluye:
