@@ -1,0 +1,443 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "ecommify_mongodb.reviews",
+    "parsedQuery": {
+      "$and": [
+        {
+          "score": {
+            "$lte": 2
+          }
+        },
+        {
+          "comment.message": {
+            "$exists": true
+          }
+        }
+      ]
+    },
+    "indexFilterSet": false,
+    "queryHash": "E46739F3",
+    "planCacheShapeHash": "E46739F3",
+    "planCacheKey": "EC8E8365",
+    "optimizationTimeMillis": 2,
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": false,
+      "stage": "LIMIT",
+      "limitAmount": 20,
+      "inputStage": {
+        "stage": "PROJECTION_SIMPLE",
+        "transformBy": {
+          "review_id": 1,
+          "order_id": 1,
+          "score": 1,
+          "comment": 1
+        },
+        "inputStage": {
+          "stage": "FETCH",
+          "inputStage": {
+            "stage": "IXSCAN",
+            "keyPattern": {
+              "score": 1,
+              "created_at": -1
+            },
+            "indexName": "idx_reviews_with_comment_partial",
+            "isMultiKey": false,
+            "multiKeyPaths": {
+              "score": [],
+              "created_at": []
+            },
+            "isUnique": false,
+            "isSparse": false,
+            "isPartial": true,
+            "indexVersion": 2,
+            "direction": "forward",
+            "indexBounds": {
+              "score": [
+                "[-inf.0, 2]"
+              ],
+              "created_at": [
+                "[MaxKey, MinKey]"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "rejectedPlans": [
+      {
+        "isCached": false,
+        "stage": "LIMIT",
+        "limitAmount": 20,
+        "inputStage": {
+          "stage": "PROJECTION_SIMPLE",
+          "transformBy": {
+            "review_id": 1,
+            "order_id": 1,
+            "score": 1,
+            "comment": 1
+          },
+          "inputStage": {
+            "stage": "FETCH",
+            "filter": {
+              "comment.message": {
+                "$exists": true
+              }
+            },
+            "inputStage": {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "score": 1
+              },
+              "indexName": "idx_reviews_score",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "score": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "score": [
+                  "[-inf.0, 2]"
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 20,
+    "executionTimeMillis": 2,
+    "totalKeysExamined": 20,
+    "totalDocsExamined": 20,
+    "executionStages": {
+      "isCached": false,
+      "stage": "LIMIT",
+      "nReturned": 20,
+      "executionTimeMillisEstimate": 1,
+      "works": 21,
+      "advanced": 20,
+      "needTime": 0,
+      "needYield": 0,
+      "saveState": 0,
+      "restoreState": 0,
+      "isEOF": 1,
+      "limitAmount": 20,
+      "inputStage": {
+        "stage": "PROJECTION_SIMPLE",
+        "nReturned": 20,
+        "executionTimeMillisEstimate": 1,
+        "works": 20,
+        "advanced": 20,
+        "needTime": 0,
+        "needYield": 0,
+        "saveState": 0,
+        "restoreState": 0,
+        "isEOF": 0,
+        "transformBy": {
+          "review_id": 1,
+          "order_id": 1,
+          "score": 1,
+          "comment": 1
+        },
+        "inputStage": {
+          "stage": "FETCH",
+          "nReturned": 20,
+          "executionTimeMillisEstimate": 1,
+          "works": 20,
+          "advanced": 20,
+          "needTime": 0,
+          "needYield": 0,
+          "saveState": 0,
+          "restoreState": 0,
+          "isEOF": 0,
+          "docsExamined": 20,
+          "alreadyHasObj": 0,
+          "inputStage": {
+            "stage": "IXSCAN",
+            "nReturned": 20,
+            "executionTimeMillisEstimate": 1,
+            "works": 20,
+            "advanced": 20,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 0,
+            "restoreState": 0,
+            "isEOF": 0,
+            "keyPattern": {
+              "score": 1,
+              "created_at": -1
+            },
+            "indexName": "idx_reviews_with_comment_partial",
+            "isMultiKey": false,
+            "multiKeyPaths": {
+              "score": [],
+              "created_at": []
+            },
+            "isUnique": false,
+            "isSparse": false,
+            "isPartial": true,
+            "indexVersion": 2,
+            "direction": "forward",
+            "indexBounds": {
+              "score": [
+                "[-inf.0, 2]"
+              ],
+              "created_at": [
+                "[MaxKey, MinKey]"
+              ]
+            },
+            "keysExamined": 20,
+            "seeks": 1,
+            "dupsTested": 0,
+            "dupsDropped": 0
+          }
+        }
+      }
+    },
+    "allPlansExecution": [
+      {
+        "nReturned": 20,
+        "executionTimeMillisEstimate": 1,
+        "totalKeysExamined": 20,
+        "totalDocsExamined": 20,
+        "score": 3.0002,
+        "executionStages": {
+          "isCached": false,
+          "stage": "LIMIT",
+          "nReturned": 20,
+          "executionTimeMillisEstimate": 1,
+          "works": 20,
+          "advanced": 20,
+          "needTime": 0,
+          "needYield": 0,
+          "saveState": 0,
+          "restoreState": 0,
+          "isEOF": 1,
+          "limitAmount": 20,
+          "inputStage": {
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 20,
+            "executionTimeMillisEstimate": 1,
+            "works": 20,
+            "advanced": 20,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 0,
+            "restoreState": 0,
+            "isEOF": 0,
+            "transformBy": {
+              "review_id": 1,
+              "order_id": 1,
+              "score": 1,
+              "comment": 1
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "nReturned": 20,
+              "executionTimeMillisEstimate": 1,
+              "works": 20,
+              "advanced": 20,
+              "needTime": 0,
+              "needYield": 0,
+              "saveState": 0,
+              "restoreState": 0,
+              "isEOF": 0,
+              "docsExamined": 20,
+              "alreadyHasObj": 0,
+              "inputStage": {
+                "stage": "IXSCAN",
+                "nReturned": 20,
+                "executionTimeMillisEstimate": 1,
+                "works": 20,
+                "advanced": 20,
+                "needTime": 0,
+                "needYield": 0,
+                "saveState": 0,
+                "restoreState": 0,
+                "isEOF": 0,
+                "keyPattern": {
+                  "score": 1,
+                  "created_at": -1
+                },
+                "indexName": "idx_reviews_with_comment_partial",
+                "isMultiKey": false,
+                "multiKeyPaths": {
+                  "score": [],
+                  "created_at": []
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": true,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "score": [
+                    "[-inf.0, 2]"
+                  ],
+                  "created_at": [
+                    "[MaxKey, MinKey]"
+                  ]
+                },
+                "keysExamined": 20,
+                "seeks": 1,
+                "dupsTested": 0,
+                "dupsDropped": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "nReturned": 19,
+        "executionTimeMillisEstimate": 1,
+        "totalKeysExamined": 20,
+        "totalDocsExamined": 20,
+        "score": 1.9502,
+        "executionStages": {
+          "isCached": false,
+          "stage": "LIMIT",
+          "nReturned": 19,
+          "executionTimeMillisEstimate": 1,
+          "works": 20,
+          "advanced": 19,
+          "needTime": 1,
+          "needYield": 0,
+          "saveState": 1,
+          "restoreState": 0,
+          "isEOF": 0,
+          "limitAmount": 20,
+          "inputStage": {
+            "stage": "PROJECTION_SIMPLE",
+            "nReturned": 19,
+            "executionTimeMillisEstimate": 1,
+            "works": 20,
+            "advanced": 19,
+            "needTime": 1,
+            "needYield": 0,
+            "saveState": 1,
+            "restoreState": 0,
+            "isEOF": 0,
+            "transformBy": {
+              "review_id": 1,
+              "order_id": 1,
+              "score": 1,
+              "comment": 1
+            },
+            "inputStage": {
+              "stage": "FETCH",
+              "filter": {
+                "comment.message": {
+                  "$exists": true
+                }
+              },
+              "nReturned": 19,
+              "executionTimeMillisEstimate": 1,
+              "works": 20,
+              "advanced": 19,
+              "needTime": 1,
+              "needYield": 0,
+              "saveState": 1,
+              "restoreState": 0,
+              "isEOF": 0,
+              "docsExamined": 20,
+              "alreadyHasObj": 0,
+              "inputStage": {
+                "stage": "IXSCAN",
+                "nReturned": 20,
+                "executionTimeMillisEstimate": 1,
+                "works": 20,
+                "advanced": 20,
+                "needTime": 0,
+                "needYield": 0,
+                "saveState": 1,
+                "restoreState": 0,
+                "isEOF": 0,
+                "keyPattern": {
+                  "score": 1
+                },
+                "indexName": "idx_reviews_score",
+                "isMultiKey": false,
+                "multiKeyPaths": {
+                  "score": []
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "score": [
+                    "[-inf.0, 2]"
+                  ]
+                },
+                "keysExamined": 20,
+                "seeks": 1,
+                "dupsTested": 0,
+                "dupsDropped": 0
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "queryShapeHash": "1DD277BF22AD0BC9869AA8BA2E66B5C94F469C597840A87D9EEF1F8BDF2AFB73",
+  "command": {
+    "find": "reviews",
+    "filter": {
+      "score": {
+        "$lte": 2
+      },
+      "comment.message": {
+        "$exists": true
+      }
+    },
+    "projection": {
+      "review_id": 1,
+      "order_id": 1,
+      "score": 1,
+      "comment": 1
+    },
+    "limit": 20,
+    "singleBatch": true,
+    "$db": "ecommify_mongodb"
+  },
+  "serverInfo": {
+    "host": "ac-ajtcnch-shard-00-02.i6bonts.mongodb.net",
+    "port": 27017,
+    "version": "8.0.26",
+    "gitVersion": "a2c24805265db119cc39f2f54e067b4294a4ddd2"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 16793600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 33554432,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": "Timestamp(1782065680, 32)",
+    "signature": {
+      "hash": "b'\\x88\\xfdS\\xdd\\xa9Q\\x01}\\xef\\x0e\\x8f>\\x97I\\x07\\x99\\x14-+\\xb8'",
+      "keyId": 7594495893026373639
+    }
+  },
+  "operationTime": "Timestamp(1782065680, 32)"
+}

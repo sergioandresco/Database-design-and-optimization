@@ -1,0 +1,363 @@
+{
+  "generated_at": "2026-06-21T18:14:15.746602+00:00",
+  "database": "ecommify_mongodb",
+  "collections": {
+    "products": {
+      "collection": "products",
+      "documents": 32951,
+      "indexes": [
+        {
+          "name": "_id_",
+          "key": {
+            "_id": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "ux_products_product_id",
+          "key": {
+            "product_id": 1
+          },
+          "unique": true
+        },
+        {
+          "name": "idx_products_category_pt",
+          "key": {
+            "category.name_pt": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_products_category_en",
+          "key": {
+            "category.name_en": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_products_avg_review",
+          "key": {
+            "analytics.avg_review_score": -1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_products_weight",
+          "key": {
+            "specs.weight_g": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_products_esr_category_score_sales",
+          "key": {
+            "category.name_en": 1,
+            "analytics.avg_review_score": -1,
+            "analytics.total_sales": -1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_products_active_category_partial",
+          "key": {
+            "status": 1,
+            "category.name_en": 1
+          },
+          "unique": false
+        }
+      ],
+      "sample_document": {
+        "product_id": "1c6fb703c624b381a20f21f757694866",
+        "category": {
+          "name_pt": "brinquedos",
+          "name_en": "toys"
+        },
+        "specs": {
+          "name_length": 33.0,
+          "description_length": 471.0,
+          "photos_qty": 2.0,
+          "weight_g": 725.0,
+          "dimensions_cm": {
+            "length": 22.0,
+            "height": 17.0,
+            "width": 15.0
+          }
+        },
+        "analytics": {
+          "avg_review_score": 5.0,
+          "total_reviews": 2,
+          "total_sales": 2
+        },
+        "status": "active",
+        "created_at": "2026-06-15 16:06:49.066000"
+      }
+    },
+    "reviews": {
+      "collection": "reviews",
+      "documents": 98410,
+      "indexes": [
+        {
+          "name": "_id_",
+          "key": {
+            "_id": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "ux_reviews_review_id",
+          "key": {
+            "review_id": 1
+          },
+          "unique": true
+        },
+        {
+          "name": "idx_reviews_order_id",
+          "key": {
+            "order_id": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_reviews_product_ids",
+          "key": {
+            "product_ids": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_reviews_score",
+          "key": {
+            "score": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_reviews_text_comment",
+          "key": {
+            "_fts": "text",
+            "_ftsx": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_reviews_with_comment_partial",
+          "key": {
+            "score": 1,
+            "created_at": -1
+          },
+          "unique": false
+        }
+      ],
+      "sample_document": {
+        "review_id": "49f695dffa457eaba90d388a5c37e942",
+        "order_id": "e5215415bb6f76fe3b7cb68103a0d1c0",
+        "score": 1,
+        "comment": {
+          "message": "PRODUTO NÃO CHEGOU,E JÁ PASSOU O PRAZO DE ENTREGA"
+        },
+        "created_at": "2016-10-09 00:00:00",
+        "answered_at": "2016-10-11 14:31:29"
+      }
+    },
+    "product_catalog_view": {
+      "collection": "product_catalog_view",
+      "documents": 32951,
+      "indexes": [
+        {
+          "name": "_id_",
+          "key": {
+            "_id": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_catalog_category_en",
+          "key": {
+            "category.name_en": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_catalog_total_sales",
+          "key": {
+            "metrics.total_sales": -1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_catalog_avg_review",
+          "key": {
+            "metrics.avg_review_score": -1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_catalog_category_sales",
+          "key": {
+            "category.name_en": 1,
+            "metrics.total_sales": -1
+          },
+          "unique": false
+        }
+      ],
+      "sample_document": {
+        "product_id": "a1b71017a84f92fd8da4aeefba108a24",
+        "category": {
+          "name_pt": "informatica_acessorios",
+          "name_en": "computers_accessories"
+        },
+        "specs": {
+          "name_length": 59.0,
+          "description_length": 636.0,
+          "photos_qty": 1.0,
+          "weight_g": 900.0,
+          "dimensions_cm": {
+            "length": 40.0,
+            "height": 15.0,
+            "width": 20.0
+          }
+        },
+        "metrics": {
+          "avg_review_score": 5.0,
+          "total_reviews": 1,
+          "total_sales": 1,
+          "total_revenue": 69.9
+        },
+        "top_sellers": [
+          {
+            "seller_id": "87142160b41353c4e5fca2360caf6f92",
+            "sales": 1,
+            "revenue": 69.9
+          }
+        ],
+        "last_updated": "2026-06-15 16:06:49.066000"
+      }
+    },
+    "user_behavior": {
+      "collection": "user_behavior",
+      "documents": 1000,
+      "indexes": [
+        {
+          "name": "_id_",
+          "key": {
+            "_id": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_behavior_customer",
+          "key": {
+            "customer_id": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_behavior_product",
+          "key": {
+            "events.product_id": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_behavior_event_time",
+          "key": {
+            "events.timestamp": -1
+          },
+          "unique": false
+        }
+      ],
+      "sample_document": {
+        "customer_id": "715afa7e9686768e6db93aeca9998020",
+        "session_id": "session_000018",
+        "events": [
+          {
+            "type": "view_product",
+            "timestamp": "2026-05-23 05:24:49.066000",
+            "product_id": "bab0f1cf32896c9fca000edaf3e36410",
+            "category": "sports_leisure"
+          },
+          {
+            "type": "add_to_cart",
+            "timestamp": "2026-05-23 05:27:49.066000",
+            "product_id": "a6f2ba5bb6d6d36ac92ed1faf4d123f2",
+            "category": "health_beauty"
+          }
+        ],
+        "device": {
+          "type": "mobile",
+          "browser": "Chrome"
+        }
+      }
+    },
+    "recommendations": {
+      "collection": "recommendations",
+      "documents": 1000,
+      "indexes": [
+        {
+          "name": "_id_",
+          "key": {
+            "_id": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_recommendations_customer",
+          "key": {
+            "customer_id": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_recommendations_product",
+          "key": {
+            "recommendations.product_id": 1
+          },
+          "unique": false
+        },
+        {
+          "name": "idx_recommendations_generated",
+          "key": {
+            "generated_at": -1
+          },
+          "unique": false
+        }
+      ],
+      "sample_document": {
+        "customer_id": "93bcaca0ba9906b15984025eb1ff7d06",
+        "generated_at": "2026-06-15 16:06:49.066000",
+        "recommendations": [
+          {
+            "product_id": "aca2eb7d00ea1a7b8ebd4e68314663af",
+            "score": 0.95,
+            "reason": "Producto popular con buen desempeño histórico",
+            "category": "furniture_decor"
+          },
+          {
+            "product_id": "99a4788cb24856965c36a24e339b6058",
+            "score": 0.92,
+            "reason": "Producto popular con buen desempeño histórico",
+            "category": "bed_bath_table"
+          },
+          {
+            "product_id": "422879e10f46682990de24d770e7f83d",
+            "score": 0.89,
+            "reason": "Producto popular con buen desempeño histórico",
+            "category": "garden_tools"
+          },
+          {
+            "product_id": "389d119b48cf3043d311335e499d9c6b",
+            "score": 0.86,
+            "reason": "Producto popular con buen desempeño histórico",
+            "category": "garden_tools"
+          },
+          {
+            "product_id": "368c6c730842d78016ad823897a372db",
+            "score": 0.83,
+            "reason": "Producto popular con buen desempeño histórico",
+            "category": "garden_tools"
+          }
+        ]
+      }
+    }
+  }
+}

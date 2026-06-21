@@ -1,0 +1,701 @@
+{
+  "explainVersion": "1",
+  "queryPlanner": {
+    "namespace": "ecommify_mongodb.products",
+    "parsedQuery": {
+      "$and": [
+        {
+          "status": {
+            "$eq": "active"
+          }
+        },
+        {
+          "category.name_en": {
+            "$exists": true
+          }
+        }
+      ]
+    },
+    "indexFilterSet": false,
+    "queryHash": "C7A7C6AB",
+    "planCacheShapeHash": "C7A7C6AB",
+    "planCacheKey": "45EA4C12",
+    "optimizationTimeMillis": 92,
+    "maxIndexedOrSolutionsReached": false,
+    "maxIndexedAndSolutionsReached": false,
+    "maxScansToExplodeReached": false,
+    "prunedSimilarIndexes": false,
+    "winningPlan": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "transformBy": {
+        "product_id": 1,
+        "category": 1,
+        "analytics": 1
+      },
+      "inputStage": {
+        "stage": "SORT",
+        "sortPattern": {
+          "analytics.avg_review_score": -1,
+          "analytics.total_sales": -1
+        },
+        "memLimit": 33554432,
+        "limitAmount": 20,
+        "type": "simple",
+        "inputStage": {
+          "stage": "FETCH",
+          "filter": {
+            "category.name_en": {
+              "$exists": true
+            }
+          },
+          "inputStage": {
+            "stage": "IXSCAN",
+            "keyPattern": {
+              "status": 1,
+              "category.name_en": 1
+            },
+            "indexName": "idx_products_active_category_partial",
+            "isMultiKey": false,
+            "multiKeyPaths": {
+              "status": [],
+              "category.name_en": []
+            },
+            "isUnique": false,
+            "isSparse": false,
+            "isPartial": true,
+            "indexVersion": 2,
+            "direction": "forward",
+            "indexBounds": {
+              "status": [
+                "[\"active\", \"active\"]"
+              ],
+              "category.name_en": [
+                "[MinKey, MaxKey]"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "rejectedPlans": [
+      {
+        "isCached": false,
+        "stage": "PROJECTION_SIMPLE",
+        "transformBy": {
+          "product_id": 1,
+          "category": 1,
+          "analytics": 1
+        },
+        "inputStage": {
+          "stage": "SORT",
+          "sortPattern": {
+            "analytics.avg_review_score": -1,
+            "analytics.total_sales": -1
+          },
+          "memLimit": 33554432,
+          "limitAmount": 20,
+          "type": "simple",
+          "inputStage": {
+            "stage": "FETCH",
+            "filter": {
+              "$and": [
+                {
+                  "category.name_en": {
+                    "$exists": true
+                  }
+                },
+                {
+                  "status": {
+                    "$eq": "active"
+                  }
+                }
+              ]
+            },
+            "inputStage": {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "category.name_en": 1,
+                "analytics.avg_review_score": -1,
+                "analytics.total_sales": -1
+              },
+              "indexName": "idx_products_esr_category_score_sales",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "category.name_en": [],
+                "analytics.avg_review_score": [],
+                "analytics.total_sales": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "category.name_en": [
+                  "[MinKey, MaxKey]"
+                ],
+                "analytics.avg_review_score": [
+                  "[MaxKey, MinKey]"
+                ],
+                "analytics.total_sales": [
+                  "[MaxKey, MinKey]"
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "isCached": false,
+        "stage": "PROJECTION_SIMPLE",
+        "transformBy": {
+          "product_id": 1,
+          "category": 1,
+          "analytics": 1
+        },
+        "inputStage": {
+          "stage": "SORT",
+          "sortPattern": {
+            "analytics.avg_review_score": -1,
+            "analytics.total_sales": -1
+          },
+          "memLimit": 33554432,
+          "limitAmount": 20,
+          "type": "simple",
+          "inputStage": {
+            "stage": "FETCH",
+            "filter": {
+              "$and": [
+                {
+                  "category.name_en": {
+                    "$exists": true
+                  }
+                },
+                {
+                  "status": {
+                    "$eq": "active"
+                  }
+                }
+              ]
+            },
+            "inputStage": {
+              "stage": "IXSCAN",
+              "keyPattern": {
+                "category.name_en": 1
+              },
+              "indexName": "idx_products_category_en",
+              "isMultiKey": false,
+              "multiKeyPaths": {
+                "category.name_en": []
+              },
+              "isUnique": false,
+              "isSparse": false,
+              "isPartial": false,
+              "indexVersion": 2,
+              "direction": "forward",
+              "indexBounds": {
+                "category.name_en": [
+                  "[MinKey, MaxKey]"
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "executionStats": {
+    "executionSuccess": true,
+    "nReturned": 20,
+    "executionTimeMillis": 155,
+    "totalKeysExamined": 32951,
+    "totalDocsExamined": 32951,
+    "executionStages": {
+      "isCached": false,
+      "stage": "PROJECTION_SIMPLE",
+      "nReturned": 20,
+      "executionTimeMillisEstimate": 77,
+      "works": 32973,
+      "advanced": 20,
+      "needTime": 32952,
+      "needYield": 0,
+      "saveState": 12,
+      "restoreState": 12,
+      "isEOF": 1,
+      "transformBy": {
+        "product_id": 1,
+        "category": 1,
+        "analytics": 1
+      },
+      "inputStage": {
+        "stage": "SORT",
+        "nReturned": 20,
+        "executionTimeMillisEstimate": 76,
+        "works": 32973,
+        "advanced": 20,
+        "needTime": 32952,
+        "needYield": 0,
+        "saveState": 12,
+        "restoreState": 12,
+        "isEOF": 1,
+        "sortPattern": {
+          "analytics.avg_review_score": -1,
+          "analytics.total_sales": -1
+        },
+        "memLimit": 33554432,
+        "limitAmount": 20,
+        "type": "simple",
+        "totalDataSizeSorted": 11177,
+        "usedDisk": false,
+        "spills": 0,
+        "spilledDataStorageSize": 0,
+        "inputStage": {
+          "stage": "FETCH",
+          "filter": {
+            "category.name_en": {
+              "$exists": true
+            }
+          },
+          "nReturned": 32328,
+          "executionTimeMillisEstimate": 61,
+          "works": 32952,
+          "advanced": 32328,
+          "needTime": 623,
+          "needYield": 0,
+          "saveState": 12,
+          "restoreState": 12,
+          "isEOF": 1,
+          "docsExamined": 32951,
+          "alreadyHasObj": 0,
+          "inputStage": {
+            "stage": "IXSCAN",
+            "nReturned": 32951,
+            "executionTimeMillisEstimate": 23,
+            "works": 32952,
+            "advanced": 32951,
+            "needTime": 0,
+            "needYield": 0,
+            "saveState": 12,
+            "restoreState": 12,
+            "isEOF": 1,
+            "keyPattern": {
+              "status": 1,
+              "category.name_en": 1
+            },
+            "indexName": "idx_products_active_category_partial",
+            "isMultiKey": false,
+            "multiKeyPaths": {
+              "status": [],
+              "category.name_en": []
+            },
+            "isUnique": false,
+            "isSparse": false,
+            "isPartial": true,
+            "indexVersion": 2,
+            "direction": "forward",
+            "indexBounds": {
+              "status": [
+                "[\"active\", \"active\"]"
+              ],
+              "category.name_en": [
+                "[MinKey, MaxKey]"
+              ]
+            },
+            "keysExamined": 32951,
+            "seeks": 1,
+            "dupsTested": 0,
+            "dupsDropped": 0
+          }
+        }
+      }
+    },
+    "allPlansExecution": [
+      {
+        "nReturned": 0,
+        "executionTimeMillisEstimate": 15,
+        "totalKeysExamined": 10000,
+        "totalDocsExamined": 10000,
+        "score": 1.0001,
+        "executionStages": {
+          "isCached": false,
+          "stage": "PROJECTION_SIMPLE",
+          "nReturned": 0,
+          "executionTimeMillisEstimate": 15,
+          "works": 10000,
+          "advanced": 0,
+          "needTime": 10000,
+          "needYield": 0,
+          "saveState": 7,
+          "restoreState": 7,
+          "isEOF": 0,
+          "transformBy": {
+            "product_id": 1,
+            "category": 1,
+            "analytics": 1
+          },
+          "inputStage": {
+            "stage": "SORT",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 15,
+            "works": 10000,
+            "advanced": 0,
+            "needTime": 10000,
+            "needYield": 0,
+            "saveState": 7,
+            "restoreState": 7,
+            "isEOF": 0,
+            "sortPattern": {
+              "analytics.avg_review_score": -1,
+              "analytics.total_sales": -1
+            },
+            "memLimit": 33554432,
+            "limitAmount": 20,
+            "type": "simple",
+            "totalDataSizeSorted": 0,
+            "usedDisk": false,
+            "spills": 0,
+            "spilledDataStorageSize": 0,
+            "inputStage": {
+              "stage": "FETCH",
+              "filter": {
+                "category.name_en": {
+                  "$exists": true
+                }
+              },
+              "nReturned": 9377,
+              "executionTimeMillisEstimate": 13,
+              "works": 10000,
+              "advanced": 9377,
+              "needTime": 623,
+              "needYield": 0,
+              "saveState": 7,
+              "restoreState": 7,
+              "isEOF": 0,
+              "docsExamined": 10000,
+              "alreadyHasObj": 0,
+              "inputStage": {
+                "stage": "IXSCAN",
+                "nReturned": 10000,
+                "executionTimeMillisEstimate": 6,
+                "works": 10000,
+                "advanced": 10000,
+                "needTime": 0,
+                "needYield": 0,
+                "saveState": 7,
+                "restoreState": 7,
+                "isEOF": 0,
+                "keyPattern": {
+                  "status": 1,
+                  "category.name_en": 1
+                },
+                "indexName": "idx_products_active_category_partial",
+                "isMultiKey": false,
+                "multiKeyPaths": {
+                  "status": [],
+                  "category.name_en": []
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": true,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "status": [
+                    "[\"active\", \"active\"]"
+                  ],
+                  "category.name_en": [
+                    "[MinKey, MaxKey]"
+                  ]
+                },
+                "keysExamined": 10000,
+                "seeks": 1,
+                "dupsTested": 0,
+                "dupsDropped": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "nReturned": 0,
+        "executionTimeMillisEstimate": 44,
+        "totalKeysExamined": 10000,
+        "totalDocsExamined": 10000,
+        "score": 1.0001,
+        "executionStages": {
+          "isCached": false,
+          "stage": "PROJECTION_SIMPLE",
+          "nReturned": 0,
+          "executionTimeMillisEstimate": 44,
+          "works": 10000,
+          "advanced": 0,
+          "needTime": 10000,
+          "needYield": 0,
+          "saveState": 8,
+          "restoreState": 7,
+          "isEOF": 0,
+          "transformBy": {
+            "product_id": 1,
+            "category": 1,
+            "analytics": 1
+          },
+          "inputStage": {
+            "stage": "SORT",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 44,
+            "works": 10000,
+            "advanced": 0,
+            "needTime": 10000,
+            "needYield": 0,
+            "saveState": 8,
+            "restoreState": 7,
+            "isEOF": 0,
+            "sortPattern": {
+              "analytics.avg_review_score": -1,
+              "analytics.total_sales": -1
+            },
+            "memLimit": 33554432,
+            "limitAmount": 20,
+            "type": "simple",
+            "totalDataSizeSorted": 0,
+            "usedDisk": false,
+            "spills": 0,
+            "spilledDataStorageSize": 0,
+            "inputStage": {
+              "stage": "FETCH",
+              "filter": {
+                "$and": [
+                  {
+                    "category.name_en": {
+                      "$exists": true
+                    }
+                  },
+                  {
+                    "status": {
+                      "$eq": "active"
+                    }
+                  }
+                ]
+              },
+              "nReturned": 9377,
+              "executionTimeMillisEstimate": 32,
+              "works": 10000,
+              "advanced": 9377,
+              "needTime": 623,
+              "needYield": 0,
+              "saveState": 8,
+              "restoreState": 7,
+              "isEOF": 0,
+              "docsExamined": 10000,
+              "alreadyHasObj": 0,
+              "inputStage": {
+                "stage": "IXSCAN",
+                "nReturned": 10000,
+                "executionTimeMillisEstimate": 10,
+                "works": 10000,
+                "advanced": 10000,
+                "needTime": 0,
+                "needYield": 0,
+                "saveState": 8,
+                "restoreState": 7,
+                "isEOF": 0,
+                "keyPattern": {
+                  "category.name_en": 1,
+                  "analytics.avg_review_score": -1,
+                  "analytics.total_sales": -1
+                },
+                "indexName": "idx_products_esr_category_score_sales",
+                "isMultiKey": false,
+                "multiKeyPaths": {
+                  "category.name_en": [],
+                  "analytics.avg_review_score": [],
+                  "analytics.total_sales": []
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "category.name_en": [
+                    "[MinKey, MaxKey]"
+                  ],
+                  "analytics.avg_review_score": [
+                    "[MaxKey, MinKey]"
+                  ],
+                  "analytics.total_sales": [
+                    "[MaxKey, MinKey]"
+                  ]
+                },
+                "keysExamined": 10000,
+                "seeks": 1,
+                "dupsTested": 0,
+                "dupsDropped": 0
+              }
+            }
+          }
+        }
+      },
+      {
+        "nReturned": 0,
+        "executionTimeMillisEstimate": 24,
+        "totalKeysExamined": 10000,
+        "totalDocsExamined": 10000,
+        "score": 1.0001,
+        "executionStages": {
+          "isCached": false,
+          "stage": "PROJECTION_SIMPLE",
+          "nReturned": 0,
+          "executionTimeMillisEstimate": 24,
+          "works": 10000,
+          "advanced": 0,
+          "needTime": 10000,
+          "needYield": 0,
+          "saveState": 8,
+          "restoreState": 7,
+          "isEOF": 0,
+          "transformBy": {
+            "product_id": 1,
+            "category": 1,
+            "analytics": 1
+          },
+          "inputStage": {
+            "stage": "SORT",
+            "nReturned": 0,
+            "executionTimeMillisEstimate": 24,
+            "works": 10000,
+            "advanced": 0,
+            "needTime": 10000,
+            "needYield": 0,
+            "saveState": 8,
+            "restoreState": 7,
+            "isEOF": 0,
+            "sortPattern": {
+              "analytics.avg_review_score": -1,
+              "analytics.total_sales": -1
+            },
+            "memLimit": 33554432,
+            "limitAmount": 20,
+            "type": "simple",
+            "totalDataSizeSorted": 0,
+            "usedDisk": false,
+            "spills": 0,
+            "spilledDataStorageSize": 0,
+            "inputStage": {
+              "stage": "FETCH",
+              "filter": {
+                "$and": [
+                  {
+                    "category.name_en": {
+                      "$exists": true
+                    }
+                  },
+                  {
+                    "status": {
+                      "$eq": "active"
+                    }
+                  }
+                ]
+              },
+              "nReturned": 9377,
+              "executionTimeMillisEstimate": 20,
+              "works": 10000,
+              "advanced": 9377,
+              "needTime": 623,
+              "needYield": 0,
+              "saveState": 8,
+              "restoreState": 7,
+              "isEOF": 0,
+              "docsExamined": 10000,
+              "alreadyHasObj": 0,
+              "inputStage": {
+                "stage": "IXSCAN",
+                "nReturned": 10000,
+                "executionTimeMillisEstimate": 2,
+                "works": 10000,
+                "advanced": 10000,
+                "needTime": 0,
+                "needYield": 0,
+                "saveState": 8,
+                "restoreState": 7,
+                "isEOF": 0,
+                "keyPattern": {
+                  "category.name_en": 1
+                },
+                "indexName": "idx_products_category_en",
+                "isMultiKey": false,
+                "multiKeyPaths": {
+                  "category.name_en": []
+                },
+                "isUnique": false,
+                "isSparse": false,
+                "isPartial": false,
+                "indexVersion": 2,
+                "direction": "forward",
+                "indexBounds": {
+                  "category.name_en": [
+                    "[MinKey, MaxKey]"
+                  ]
+                },
+                "keysExamined": 10000,
+                "seeks": 1,
+                "dupsTested": 0,
+                "dupsDropped": 0
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "queryShapeHash": "6DC4DD43B3799DC1CC45620B777F8E239490859202A5298DCBADCA1A4056D1BF",
+  "command": {
+    "find": "products",
+    "filter": {
+      "category.name_en": {
+        "$exists": true
+      },
+      "status": "active"
+    },
+    "sort": {
+      "analytics.avg_review_score": -1,
+      "analytics.total_sales": -1
+    },
+    "projection": {
+      "product_id": 1,
+      "category": 1,
+      "analytics": 1
+    },
+    "limit": 20,
+    "singleBatch": true,
+    "$db": "ecommify_mongodb"
+  },
+  "serverInfo": {
+    "host": "ac-ajtcnch-shard-00-02.i6bonts.mongodb.net",
+    "port": 27017,
+    "version": "8.0.26",
+    "gitVersion": "a2c24805265db119cc39f2f54e067b4294a4ddd2"
+  },
+  "serverParameters": {
+    "internalQueryFacetBufferSizeBytes": 104857600,
+    "internalQueryFacetMaxOutputDocSizeBytes": 104857600,
+    "internalLookupStageIntermediateDocumentMaxSizeBytes": 16793600,
+    "internalDocumentSourceGroupMaxMemoryBytes": 104857600,
+    "internalQueryMaxBlockingSortMemoryUsageBytes": 33554432,
+    "internalQueryProhibitBlockingMergeOnMongoS": 0,
+    "internalQueryMaxAddToSetBytes": 104857600,
+    "internalDocumentSourceSetWindowFieldsMaxMemoryBytes": 104857600,
+    "internalQueryFrameworkControl": "trySbeRestricted",
+    "internalQueryPlannerIgnoreIndexWithCollationForRegex": 1
+  },
+  "ok": 1.0,
+  "$clusterTime": {
+    "clusterTime": "Timestamp(1782065680, 27)",
+    "signature": {
+      "hash": "b'\\x88\\xfdS\\xdd\\xa9Q\\x01}\\xef\\x0e\\x8f>\\x97I\\x07\\x99\\x14-+\\xb8'",
+      "keyId": 7594495893026373639
+    }
+  },
+  "operationTime": "Timestamp(1782065680, 27)"
+}

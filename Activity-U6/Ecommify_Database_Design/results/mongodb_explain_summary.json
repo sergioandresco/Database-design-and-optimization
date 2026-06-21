@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-06-21T18:14:39.871112+00:00",
+  "database": "ecommify_mongodb",
+  "queries": {
+    "products_by_category_score_sales": {
+      "executionTimeMillis": 155,
+      "totalDocsExamined": 32951,
+      "totalKeysExamined": 32951,
+      "nReturned": 20,
+      "efficiencyRatio": 1647.55,
+      "explain_file": "C:\\Users\\ROGELIO\\Desktop\\MAS\\Diseño y Optimizacion de bases de datos\\Activity 2\\Database-design-and-optimization\\Activity-U6\\Ecommify_Database_Design\\evidences\\explain_results\\mongodb\\products_by_category_score_sales_explain.json"
+    },
+    "negative_reviews_with_comment": {
+      "executionTimeMillis": 2,
+      "totalDocsExamined": 20,
+      "totalKeysExamined": 20,
+      "nReturned": 20,
+      "efficiencyRatio": 1.0,
+      "explain_file": "C:\\Users\\ROGELIO\\Desktop\\MAS\\Diseño y Optimizacion de bases de datos\\Activity 2\\Database-design-and-optimization\\Activity-U6\\Ecommify_Database_Design\\evidences\\explain_results\\mongodb\\negative_reviews_with_comment_explain.json"
+    },
+    "catalog_top_sales": {
+      "executionTimeMillis": 3,
+      "totalDocsExamined": 21,
+      "totalKeysExamined": 21,
+      "nReturned": 20,
+      "efficiencyRatio": 1.05,
+      "explain_file": "C:\\Users\\ROGELIO\\Desktop\\MAS\\Diseño y Optimizacion de bases de datos\\Activity 2\\Database-design-and-optimization\\Activity-U6\\Ecommify_Database_Design\\evidences\\explain_results\\mongodb\\catalog_top_sales_explain.json"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+query,executionTimeMillis,totalDocsExamined,totalKeysExamined,nReturned,efficiencyRatio
+products_by_category_score_sales,155,32951,32951,20,1647.55
+negative_reviews_with_comment,2,20,20,20,1.0
+catalog_top_sales,3,21,21,20,1.05

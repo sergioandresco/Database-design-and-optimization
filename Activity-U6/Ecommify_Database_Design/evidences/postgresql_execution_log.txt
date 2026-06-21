@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-06-21T18:12:59.627762+00:00",
+  "scripts": [
+    {
+      "file": "C:\\Users\\ROGELIO\\Desktop\\MAS\\Diseño y Optimizacion de bases de datos\\Activity 2\\Database-design-and-optimization\\Activity-U6\\Ecommify_Database_Design\\database\\posgresql\\schema\\01_create_tables.sql",
+      "status": "OK",
+      "execution_seconds": 0.3597
+    },
+    {
+      "file": "C:\\Users\\ROGELIO\\Desktop\\MAS\\Diseño y Optimizacion de bases de datos\\Activity 2\\Database-design-and-optimization\\Activity-U6\\Ecommify_Database_Design\\database\\posgresql\\schema\\02_indexes.sql",
+      "status": "OK",
+      "execution_seconds": 0.4502
+    },
+    {
+      "file": "C:\\Users\\ROGELIO\\Desktop\\MAS\\Diseño y Optimizacion de bases de datos\\Activity 2\\Database-design-and-optimization\\Activity-U6\\Ecommify_Database_Design\\database\\posgresql\\seed_data\\01_seed_data.sql",
+      "status": "OK",
+      "execution_seconds": 0.1158
+    }
+  ]
+}
