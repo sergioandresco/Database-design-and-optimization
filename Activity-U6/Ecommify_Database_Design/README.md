@@ -14,6 +14,7 @@ Juan José Vélez Álvarez
 Juan Sebastián Buitrago Romero
 Sergio Andrés Cobos Suárez
 David Aníbal Vásquez Beltrán
+
 📌 Descripción del Proyecto
 
 Ecommify es un proyecto académico que aborda el diseño, implementación y optimización de una arquitectura de bases de datos para un entorno de comercio electrónico basado en el dataset Olist.
@@ -37,6 +38,7 @@ Analizar decisiones arquitectónicas utilizando el Teorema CAP.
 Documentar una solución reproducible y escalable.
 
 🏗 Arquitectura Implementada
+
 El proyecto adopta una arquitectura híbrida o políglota.
 PostgreSQL (Supabase)
 PostgreSQL funciona como sistema OLTP y fuente principal de verdad.
