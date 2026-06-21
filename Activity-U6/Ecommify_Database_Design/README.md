@@ -114,68 +114,84 @@ La implementación relacional incluye:
 - EXPLAIN ANALYZE.
 - Particionamiento por fecha.
 
-🍃 Implementación MongoDB
+# Implementación MongoDB
+
 La implementación documental incluye:
-Modelado
-JSON Schema Validation.
-Attribute Pattern.
-Computed Pattern.
-Subset Pattern.
-Extended Reference Pattern.
-Índices
-Simples.
-Compuestos.
-Parciales.
-Full Text Search.
-Aggregation Pipelines
-Catálogo por categoría.
-Análisis de reseñas.
-Productos más vendidos.
-Métricas agregadas.
 
-⚡ Optimización de Rendimiento
-PostgreSQL
-Se optimizaron consultas utilizando:
-Índices especializados.
-Particionamiento.
-EXPLAIN ANALYZE.
-MongoDB
-Se optimizaron consultas mediante:
-Índices compuestos siguiendo la regla ESR.
-Índices parciales.
-Índices de texto.
-Aggregation Pipelines optimizados.
-Explain Execution Stats.
-Métricas evaluadas
-executionTimeMillis
-totalDocsExamined
-totalKeysExamined
-nReturned
-Efficiency Ratio
+**Modelado**
+- JSON Schema Validation.
+- Attribute Pattern.
+- Computed Pattern.
+- Subset Pattern.
+- Extended Reference Pattern.
 
-🔀 Escalabilidad
-Replica Sets
+**Índices**
+- Simples.
+- Compuestos.
+- Parciales.
+- Full Text Search.
+
+**Aggregation Pipelines**
+- Catálogo por categoría.
+- Análisis de reseñas.
+- Productos más vendidos.
+- Métricas agregadas.
+
+# Optimización de Rendimiento
+
+**PostgreSQL**
+- Se optimizaron consultas utilizando:
+- Índices especializados.
+- Particionamiento.
+- EXPLAIN ANALYZE.
+
+**MongoDB**
+
+- Se optimizaron consultas mediante:
+- Índices compuestos siguiendo la regla ESR.
+- Índices parciales.
+- Índices de texto.
+- Aggregation Pipelines optimizados.
+- Explain Execution Stats.
+
+**Métricas evaluadas**
+
+- executionTimeMillis
+- totalDocsExamined
+- totalKeysExamined
+- nReturned
+- Efficiency Ratio
+
+# Escalabilidad
+
+**Replica Sets**
+
 Configuración teórica:
-1 Primary
-2 Secondary
-Estrategias implementadas
-Read Preference
-Write Concern
-Consistencia eventual
+1) Primary
+2) Secondary
 
-Sharding
+**Estrategias implementadas**
+- Read Preference
+- Write Concern
+- Consistencia eventual
+
+**Sharding**
+
 Shard Key propuesta
+
 {
   "category.name_en": 1,
   "_id": "hashed"
 }
 
-Beneficios
-Distribución uniforme.
-Menor riesgo de hotspots.
-Consultas eficientes por categoría.
+**Beneficios**
 
-📁 Estructura del Repositorio
+- Distribución uniforme.
+- Menor riesgo de hotspots.
+- Consultas eficientes por categoría.
+
+# Estructura del Repositorio
+```
 Ecommify_Database_Design/
 │
 ├── README.md
@@ -199,16 +215,17 @@ Ecommify_Database_Design/
 │   ├── results/
 │   ├── evidences/
 │   └── setup/
+```
 
 
+# Cómo Reproducir el Proyecto
 
-▶ Cómo Reproducir el Proyecto
 Requisitos
-Python 3.10+
-Google Colab
-MongoDB Atlas
-Supabase
-Git
+- Python 3.10+
+- Google Colab
+- MongoDB Atlas
+- Supabase
+- Git
 
 Clonar Repositorio
 git clone https://github.com/sergioandresco/Database-design-and-optimization.git
@@ -233,43 +250,53 @@ Ejecucion scripts
 4) Ejecutar validate_mongodb_atlas.py
 5) Ejecutar generate_performance_evidences.py
 
-📈 Resultados Obtenidos
-PostgreSQL
-Modelo normalizado.
-Integridad referencial validada.
-Optimización mediante índices.
-Particionamiento implementado.
-MongoDB
-Colecciones documentales optimizadas.
-JSON Schema Validation.
-Índices especializados.
-Aggregation Pipelines eficientes.
-Explain Execution Stats documentado.
-Arquitectura
-Separación clara de responsabilidades.
-Escalabilidad futura documentada.
-Estrategia híbrida validada.
+# Resultados Obtenidos
 
-📚 Documentación
+**PostgreSQL**
+- Modelo normalizado.
+- Integridad referencial validada.
+- Optimización mediante índices.
+- Particionamiento implementado.
+
+**MongoDB**
+
+- Colecciones documentales optimizadas.
+- JSON Schema Validation.
+- Índices especializados.
+- Aggregation Pipelines eficientes.
+- Explain Execution Stats documentado.
+
+**Arquitectura**
+
+- Separación clara de responsabilidades.
+- Escalabilidad futura documentada.
+- Estrategia híbrida validada.
+
+# Documentación
+
 La documentación completa se encuentra en:
 docs/
 
 Incluye:
 Informe final
 
-🔗 Repositorio
-GitHub:
-https://github.com/sergioandresco/Database-design-and-optimization
+# Repositorio
 
-📖 Referencias
-MongoDB Documentation
-PostgreSQL Documentation
-Supabase Documentation
-MongoDB Atlas Documentation
-Olist E-commerce Dataset
-Material académico de Diseño y Optimización de Bases de Datos
+**GitHub:** https://github.com/sergioandresco/Database-design-and-optimization
 
-✅ Estado del Proyecto
+# Referencias
+
+- MongoDB Documentation
+- PostgreSQL Documentation
+- Supabase Documentation
+- MongoDB Atlas Documentation
+- Olist E-commerce Dataset
+- Material académico de Diseño y Optimización de Bases de Datos
+
+# Estado del Proyecto
+
 Proyecto Finalizado
+
 Versión Académica — Arquitectura Híbrida PostgreSQL + MongoDB
+
 Universidad de La Sabana
