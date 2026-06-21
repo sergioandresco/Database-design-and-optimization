@@ -1,23 +1,32 @@
 🚀 Ecommify — Database Design and Optimization
 Diseño, Implementación y Optimización de una Arquitectura Híbrida PostgreSQL + MongoDB para E-commerce
 Universidad de La Sabana
+
 Facultad de Ingeniería – Ingeniería de Sistemas
+
 Asignatura: Diseño y Optimización de Bases de Datos
+
 Proyecto Final: Ecommify
+
 Integrantes
+
 Juan José Vélez Álvarez
 Juan Sebastián Buitrago Romero
 Sergio Andrés Cobos Suárez
 David Aníbal Vásquez Beltrán
-
 📌 Descripción del Proyecto
+
 Ecommify es un proyecto académico que aborda el diseño, implementación y optimización de una arquitectura de bases de datos para un entorno de comercio electrónico basado en el dataset Olist.
+
 El proyecto parte de un análisis exploratorio de datos (EDA) para identificar la naturaleza, calidad y comportamiento de las entidades principales del negocio. A partir de estos hallazgos se diseña una arquitectura híbrida que combina PostgreSQL y MongoDB para aprovechar las fortalezas de ambos paradigmas.
+
 La solución implementada busca responder a necesidades transaccionales, analíticas y de escalabilidad, manteniendo consistencia donde es necesaria y flexibilidad donde aporta valor.
 
 🎯 Objetivos
 Objetivo General
+
 Diseñar e implementar una arquitectura híbrida de bases de datos que combine PostgreSQL y MongoDB para soportar las necesidades operativas y analíticas de una plataforma de comercio electrónico.
+
 Objetivos Específicos
 Analizar la calidad y estructura del dataset Ecommify.
 Diseñar un modelo relacional normalizado para entidades transaccionales.
